@@ -5,12 +5,12 @@ Encode a set of form elements as an **multi-dimensional object** of names and va
  **HTML:** 
  
      <form>
-      <div class="input"><input type="hidden" name="element[a][]" value="a1"></div>
-      <div class="input"><input type="hidden" name="element[a][]" value="a2"></div>
-      <div class="input"><input type="hidden" name="element[b][]" value="b1"></div>
-      <div class="input"><input type="hidden" name="element[b][]" value="b2"></div>
-      <div class="input"><input type="hidden" name="element[c]" value="c1"></div>
-	</form>
+      <input name="element[a][]" value="a1">
+      <input name="element[a][]" value="a2">
+      <input name="element[b][]" value="b1">
+      <input name="element[b][]" value="b2">
+      <input name="element[c]" value="c1">
+     </form>
 
 **JS:**
     
