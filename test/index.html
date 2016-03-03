@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Serialize Object</title>
+  <style type="text/css">
+    .container{
+      width: 800px;
+      margin: 0 auto;
+      background: #f7f7f7;
+      padding: 20px;
+      color: #333;
+    }
+    .input{
+      margin-bottom: 10px;
+    }
+    input, textarea, select{
+      width: 300px;
+    }
+    [type="checkbox"]{
+      width: 50px;
+    }
+    .console{
+      margin-top: 30px;
+      padding: 5px 20px 30px;
+      background: #ddd;
+      word-wrap: break-word;
+    }
+    footer{
+      color: #333;
+      text-align: center;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>jQuery Serialize Object</h1>
+    <p>Encode a set of form elements as an <b>multi-dimensional object</b> of names and values.</p>
+    <form>
+      <div class="input"><input type="hidden" name="hidden[a][]" value="a1"></div>
+      <div class="input"><input type="hidden" name="hidden[a][]" value="a2"></div>
+      <div class="input"><input type="hidden" name="hidden[b][]" value="b1"></div>
+      <div class="input"><input type="hidden" name="hidden[b][]" value="b2"></div>
+      <div class="input"><input type="hidden" name="hidden[c]" value="c"></div>
+
+      <div class="input"><input type="text" name="text" value="1"></div>
+      <div class="input"><textarea name="multi-text" rows="5">4</textarea></div>
+      <div class="input"><select name="multiple-select[]" multiple>
+        <option value="5" selected="selected">5</option>
+        <option value="6">6</option>
+        <option value="7" selected="selected">7</option>
+      </select></div>
+      <div class="input">
+        <label>checkbox a<input type="checkbox" name="checkbox[]" value="a"></label>
+        <label>checkbox b<input type="checkbox" name="checkbox[]" value="b" checked></label>
+        <label>checkbox c<input type="checkbox" name="checkbox[]" value="c"></label>
+        <label>checkbox d<input type="checkbox" name="checkbox[]" value="d" checked></label>
+      </div>
+      <div class="input">
+        <input type="submit" name="g" value="Convert to JSON" id="submit">
+      </div>
+    </form>
+    <div class="console">
+      <h3>JSON:</h3>
+      <pre></pre>
+    </div>
+    <footer>
+      <a href="https://github.com/AlirezaMH/serializeObject">Github</a>
+    </footer>
+  </div>
+  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="../serializeObject.jquery.min.js"></script>
+  <script type="text/javascript">
+
+    $('#submit').click(function(event) {
+      event.preventDefault();
+      var object = $('form').serializeObject();
+      console.log(object);
+      $('.console pre').html(JSON.stringify(object));
+    });
+    
+  </script>
+</body>
+</html>
